@@ -666,7 +666,7 @@ html{
         <div class="container">
             <div class="hero-content">
 
-    <img src="portfolio.png" alt="Abdul Raziq" class="profile-img">
+    <img src="{{ url_for('static', filename='portfolio.png') }}" alt="Abdul Raziq" class="profile-img">
 
     <div class="hero-text">
         <p>// Graphic Designer & Web Developer</p>
@@ -691,7 +691,8 @@ html{
                     <p>I am Abdul Raziq, a Digital Systems & Web Technology student with a strong passion for building modern digital solutions. I specialize in developing efficient web applications and software systems using technologies like Python, Flask, and MySQL.</p>
                     <p>My experience includes developing full-stack web applications, billing management software, and data analytics dashboards using Power BI. I focus on creating scalable, user-friendly, and performance-driven systems that solve real-world problems.</p>
                     <p>I am always eager to learn new technologies and continuously improve my skills in software development, data analysis, and system design.</p>
-                    <a href="Professional CV Resume.pdf" download class="btn">Download CV</a>
+                   <!-- CV Download Link -->
+                    <a href="{{ url_for('static', filename='Professional CV Resume.pdf') }}" download class="btn">Download CV</a>
                 </div>
                 <div class="about-stats">
 
@@ -727,8 +728,8 @@ html{
                 <div class="skill-category">
                     <h3><i class="fas fa-code"></i> Development</h3>
                     <div class="skill-list">
-                        <span class="skill-item">HTML5</span>
-                        <span class="skill-item">CSS3</span>
+                        <span class="skill-item">HTML</span>
+                        <span class="skill-item">CSS</span>
                         <span class="skill-item">Python</span>
                         <span class="skill-item">Flask</span>
                         <span class="skill-item">MySQL</span>
@@ -764,7 +765,7 @@ html{
 
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">03. Case Studies</h2>
+            <h2 class="section-title">03. Projects</h2>
             <p class="section-subtitle">Selected commercial and academic projects</p>
             <div class="projects-grid">
                 
@@ -813,13 +814,13 @@ html{
             <h2 class="section-title">04. Connection</h2>
             <div class="contact-box">
                 <h3>Start a Conversation</h3>
-                <form id="contactForm" class="contact-form">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <input type="tel" name="contact" placeholder="Your Contact Number" required>
-    <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
-    <button type="submit" class="btn">Send to Message</button>
-</form>
+                <form action="/contact" method="POST" class="contact-form">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="tel" name="contact" placeholder="Your Contact Number" required>
+                    <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
                 <div id="responseMsg" style="margin-top:10px; color:var(--primary-color);"></div>
             </div>
         </div>
