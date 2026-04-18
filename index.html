@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Space+Mono&display=swap" rel="stylesheet">
-
-    <style>
+<style>
         /* --- 1. CSS VARIABLES & RESET --- */
         :root {
             --bg-color: #050509;
@@ -23,14 +22,13 @@
             --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            text-align: center;
-            text-decoration: none;
-            list-style: none;
-            outline: none;
+        *  {
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            text-decoration:none;
+            list-style:none;
+            outline:none;
         }
 
         html {
@@ -459,38 +457,205 @@
     text-decoration: underline;
 }
 
-/* --- 10. UPDATED NEON FOOTER --- */
+/* --- GRAPHIC DESIGN SECTION --- */
+/* --- GRAPHICS SECTION STYLING --- */
+.graphics {
+    padding: 100px 0;
+    background-color: var(--bg-color);
+}
+
+.graphics-block {
+    margin-bottom: 100px;
+}
+
+.block-header {
+    margin-bottom: 40px;
+    border-left: 5px solid var(--primary-color);
+    padding-left: 20px;
+}
+
+.block-info h3 {
+    font-size: 2rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    font-family: var(--font-mono);
+}
+
+.block-info p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 600px;
+}
+
+/* GRID SYSTEM */
+.graphics-grid {
+    display: grid;
+    gap: 25px;
+}
+
+.card-grid { grid-template-columns: repeat(2, 1fr); }
+.logo-grid { grid-template-columns: repeat(4, 1fr); }
+
+.design-card {
+    position: relative;
+    background: var(--secondary-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    height: 280px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.design-card img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain; /* Isse aapka design katega nahi */
+    transition: transform 0.5s ease;
+}
+
+.design-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+}
+
+.design-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.design-card:hover .design-overlay { opacity: 1; }
+
+.design-overlay span {
+    color: var(--primary-color);
+    font-family: var(--font-mono);
+    font-weight: 600;
+}
+
+/* VIDEO BLOCK STYLING */
+.video-block-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    background: var(--secondary-bg);
+    padding: 40px;
+    border-radius: 20px;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.video-wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 2px solid rgba(0, 242, 254, 0.2);
+}
+
+.video-wrapper video {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; /* Ya 'contain' agar aap poori video dikhana chahte hain */
+}
+
+.video-content h4 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.video-content p {
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.tech-tag {
+    background: rgba(0, 242, 254, 0.1);
+    color: var(--primary-color);
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    margin-right: 10px;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+    .logo-grid { grid-template-columns: repeat(2, 1fr); }
+    .video-block-container { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    .card-grid, .logo-grid { grid-template-columns: 1fr; }
+    .video-block-container { padding: 20px; }
+}
+
+/* =====================================================
+   FOOTER ALIGNMENT - FINAL CORRECTED CODE
+===================================================== */
+
 .site-footer {
     background-color: var(--secondary-bg);
-    padding: 80px 0 30px 0;
-    border-top: 1px solid rgba(0, 242, 254, 0.1);
-    font-family: var(--font-main);
+    padding: 80px 0 30px;
+    border-top: 1px solid rgba(0,242,254,0.1);
 }
 
+.site-footer .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* MAIN FOOTER GRID */
 .footer-container {
     display: grid;
-    grid-template-columns: 2fr 1fr 1.5fr;
-    gap: 50px;
-    margin-bottom: 50px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    align-items: flex-start; /* Sab ko top line se khench kar rakhega */
 }
 
-.footer-section h3 {
+.footer-section {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+/* TITLES & LOGO ALIGNMENT - Yahan default margins reset kiye hain */
+.footer-section h2, 
+.footer-section h3,
+.footer-section .logo {
     color: var(--primary-color);
     font-family: var(--font-mono);
     font-size: 1.3rem;
-    margin-bottom: 25px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    
+    /* Alignment Fix: Margin-top zero zaroori hai */
+    margin-top: 0 !important; 
+    margin-bottom: 25px; 
+    height: 35px; /* Box height barabar rakhi hai */
+    display: flex;
+    align-items: center;
 }
 
-/* About Section */
+/* ABOUT TEXT */
 .footer-section.about p {
     color: var(--text-muted);
     line-height: 1.8;
-    margin-bottom: 20px;
-    max-width: 400px;
+    margin: 0 0 20px 0; /* Margin top zero */
+    max-width: 350px;
 }
 
+/* SOCIAL ICONS */
 .footer-social {
     display: flex;
     gap: 15px;
@@ -499,84 +664,90 @@
 .footer-social a {
     width: 40px;
     height: 40px;
-    border: 1px solid rgba(0, 242, 254, 0.3);
-    border-radius: 5px;
+    border: 1px solid rgba(0,242,254,0.3);
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--primary-color);
-    transition: var(--transition);
+    transition: 0.3s;
 }
 
 .footer-social a:hover {
     background: var(--primary-color);
     color: var(--bg-color);
     box-shadow: 0 0 15px var(--primary-color);
-    transform: translateY(-3px);
 }
 
-/* Links Section */
-.footer-section.links ul li {
+/* QUICK LINKS - Default browser padding hatayi hai */
+.footer-section.links ul {
+    padding: 0;
+    margin: 0; 
+    list-style: none;
+}
+
+.footer-section.links li {
     margin-bottom: 12px;
 }
 
-.footer-section.links ul li a {
+.footer-section.links a {
     color: var(--text-muted);
-    transition: var(--transition);
     font-family: var(--font-mono);
+    transition: 0.3s;
+    display: inline-block;
 }
 
-.footer-section.links ul li a:hover {
+.footer-section.links a:hover {
     color: var(--primary-color);
     padding-left: 8px;
 }
 
-/* Contact Section */
+/* CONTACT */
 .footer-section.contact p {
     color: var(--text-muted);
-    margin-bottom: 15px;
+    margin: 0 0 15px 0; 
     display: flex;
     align-items: center;
     gap: 10px;
+    min-height: 24px;
 }
 
 .footer-section.contact i {
     color: var(--primary-color);
+    width: 20px;
+    text-align: center;
 }
 
 .footer-section.contact a {
     color: var(--text-muted);
-    transition: var(--transition);
 }
 
 .footer-section.contact a:hover {
     color: var(--primary-color);
 }
 
-/* Footer Bottom */
+/* FOOTER BOTTOM */
 .footer-bottom {
-    padding-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 60px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255,255,255,0.08);
     text-align: center;
 }
 
 .footer-bottom p {
     color: var(--text-muted);
     font-size: 0.9rem;
-    font-family: var(--font-mono);
 }
 
 .footer-bottom span {
     color: var(--primary-color);
-    font-weight: bold;
 }
 
 .designed-by {
     margin-top: 5px;
-    font-size: 0.7rem !important;
-    opacity: 0.5;
+    font-size: 0.75rem;
+    opacity: 0.6;
 }
-
 /* Mobile Responsive */
 @media (max-width: 992px) {
     .footer-container {
@@ -587,7 +758,11 @@
 @media (max-width: 768px) {
     .footer-container {
         grid-template-columns: 1fr;
-        text-align: center;
+        gap: 40px;
+    }
+    .footer-section h2, .footer-section h3, .footer-section .logo {
+        height: auto;
+        margin-bottom: 15px;
     }
     .footer-social {
         justify-content: center;
@@ -602,6 +777,9 @@
     .footer-container {
         flex-direction: column;
         text-align: left;
+    }
+    .graphics-grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -793,7 +971,7 @@ html{
 }
 
 }
-    </style>
+</style>
 </head>
 <body>
 
@@ -804,11 +982,11 @@ html{
             <nav>
                 <div class="logo"><a>ABDUL</a> <span>RAZIQ</span></div>
                 <ul class="nav-links">
-                    <li><a href="#home">// Home</a></li>
-                    <li><a href="#about">// About</a></li>
-                    <li><a href="#skills">// Skills</a></li>
-                    <li><a href="#projects">// Projects</a></li>
-                    <li><a href="#contact">// Contact</a></li>
+                    <li><a href="#home"> Home</a></li>
+                    <li><a href="#about"> About</a></li>
+                    <li><a href="#skills"> Skills</a></li>
+                    <li><a href="#projects"> Projects</a></li>
+                    <li><a href="#contact"> Contact</a></li>
                 </ul>
                 <a href="mailto:abdulraziq20019@gmail.com" class="btn">Hire Me</a>
             </nav>
@@ -918,7 +1096,7 @@ html{
 
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">03. Projects</h2>
+            <h2 class="section-title">03. Projects Web Development</h2>
             <p class="section-subtitle">Selected commercial and academic projects</p>
             <div class="projects-grid">
                 
@@ -962,9 +1140,74 @@ html{
         </div>
     </section>
 
+<section id="graphics" class="graphics">
+    <div class="container">
+        <h2 class="section-title">04. Graphic <span>Designs</span></h2>
+        <p class="section-subtitle">A collection of my branding and motion projects</p>
+        
+        <div class="graphics-block">
+            <div class="block-header">
+                <div class="block-info">
+                    <h3>Visiting Cards</h3>
+                    <p>Modern and professional business card layouts designed for branding.</p>
+                </div>
+            </div>
+            <div class="graphics-grid card-grid">
+                <div class="design-card">
+                    <img src="card1.PNG" alt="Visiting Card 1">
+                    <div class="design-overlay"><span>Business Card 1</span></div>
+                </div>
+                <div class="design-card">
+                    <img src="card2.jpg" alt="Visiting Card 2">
+                    <div class="design-overlay"><span>Business Card 2</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="graphics-block">
+            <div class="block-header">
+                <div class="block-info">
+                    <h3>Real Life Logos</h3>
+                    <p>Original brand identities and corporate marks created from scratch.</p>
+                </div>
+            </div>
+            <div class="graphics-grid logo-grid">
+                <div class="design-card"><img src="logo1.JPG" alt="Logo 1"><div class="design-overlay"><span>Logo 1</span></div></div>
+                <div class="design-card"><img src="logo2.PNG" alt="Logo 2"><div class="design-overlay"><span>Logo 2</span></div></div>
+                <div class="design-card"><img src="logo3.jpg" alt="Logo 3"><div class="design-overlay"><span>Logo 3</span></div></div>
+                <div class="design-card"><img src="logo4.PNG" alt="Logo 4"><div class="design-overlay"><span>Logo 4</span></div></div>
+            </div>
+        </div>
+
+        <div class="graphics-block">
+            <div class="block-header">
+                <div class="block-info">
+                    <h3>Motion Graphics</h3>
+                    <p>Dynamic AI animations and video effects for digital platforms.</p>
+                </div>
+            </div>
+            <div class="video-block-container">
+                <div class="video-wrapper">
+                    <video autoplay loop muted playsinline>
+                        <source src="gif.mov" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="video-content">
+                    <h4>Animated Identity</h4>
+                    <p>This motion piece demonstrates fluid transitions and AI-integrated visual styles.
+                         It's designed to capture attention in social media feeds and digital signage.</p>
+                    <span class="tech-tag">After Effects</span> <span class="tech-tag">AI Tools</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
 <section id="contact" class="contact">
     <div class="container">
-        <h2 class="section-title">04. Contact</h2>
+        <h2 class="section-title">05. Contact</h2>
         <div class="contact-box">
             <h3>Connect With Me</h3>
             <p class="contact-info">
@@ -984,44 +1227,80 @@ html{
 
 <footer class="site-footer">
     <div class="container">
+
         <div class="footer-container">
+
+            <!-- ABOUT -->
             <div class="footer-section about">
-                <h2 class="logo">ABDUL <span>RAZIQ</span></h2>
-                <p>Full Stack Developer specializing in creating scalable, secure, and user-friendly solutions. Expert in modern web technologies and graphic designing.</p>
+                <h3 class="logo">ABDUL <span>RAZIQ</span></h3>
+
+                <p>
+                    Full Stack Developer specializing in creating scalable,
+                    secure, and user-friendly solutions. Expert in modern
+                    web technologies and graphic designing.
+                </p>
+
                 <div class="footer-social">
-                    <div class="footer-social">
-                    <div class="footer-social">
-                        <!-- <a href="https://github.com/AbdulRaziqG0812" target="_blank"><i class="fab fa-github"></i></a> -->
-                        <a href="https://www.linkedin.com/in/abdul-raziq-a42787336" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.instagram.com/raziq_designer" target="_blank"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
+                    <a href="https://github.com/AbdulRaziqG0812" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/abdul-raziq-a42787336" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com/raziq_designer" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
                 </div>
             </div>
 
+
+            <!-- QUICK LINKS -->
             <div class="footer-section links">
                 <h3>Quick Links</h3>
+
                 <ul>
-                    <li><a href="#home">// Home</a></li>
-                    <li><a href="#about">// About</a></li>
-                    <li><a href="#skills">// Skills</a></li>
-                    <li><a href="#projects">// Projects</a></li>
-                    <li><a href="#contact">// Contact</a></li>
+                    <li><a href="#home"> Home</a></li>
+                    <li><a href="#about"> About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects"> Projects</a></li>
+                    <li><a href="#contact"> Contact</a></li>
                 </ul>
             </div>
 
+
+            <!-- CONTACT -->
             <div class="footer-section contact">
                 <h3>Contact Us</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Rawalpindi, Pakistan</p>
-                <p><i class="fas fa-phone"></i> <a href="tel:+923029389451">0302-9389451</a></p>
-                <p><i class="fas fa-envelope"></i> <a href="mailto:abdulraziq20019@gmail.com">abdulraziq20019@gmail.com</a></p>
+
+                <p>
+                    <i class="fas fa-map-marker-alt"></i>
+                    Rawalpindi, Pakistan
+                </p>
+
+                <p>
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+923029389451">0302-9389451</a>
+                </p>
+
+                <p>
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:abdulraziq20019@gmail.com">
+                        abdulraziq20019@gmail.com
+                    </a>
+                </p>
             </div>
+
         </div>
 
+
+        <!-- FOOTER BOTTOM -->
         <div class="footer-bottom">
             <p>&copy; 2026 <span>Abdul Raziq</span>. All Rights Reserved.</p>
             <p class="designed-by">Designed by Abdul Raziq</p>
         </div>
+
     </div>
 </footer>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
