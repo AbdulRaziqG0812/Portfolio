@@ -599,7 +599,66 @@
     font-family: var(--font-mono);
     margin-right: 10px;
 }
+/* FULL SCREEN MODAL CSS */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+}
 
+.modal-content {
+    max-width: 85%;
+    max-height: 85vh;
+    border-radius: 10px;
+    animation: zoomIn 0.3s ease;
+}
+
+.close-modal {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: white;
+    font-size: 50px;
+    cursor: pointer;
+}
+/* AI Source Button Style */
+.ai-view-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 25px;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-family: var(--font-mono);
+    transition: all 0.3s ease;
+    background: transparent;
+    margin-top: 20px;
+}
+
+.ai-view-btn:hover {
+    background: rgba(0, 242, 254, 0.1);
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
+    transform: translateY(-3px);
+}
+
+.ai-view-btn i {
+    font-size: 1.1rem;
+}
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
 
 /* =====================================================
    FOOTER ALIGNMENT - FINAL CORRECTED CODE
@@ -822,6 +881,11 @@ html{
     grid-template-columns: repeat(2, 1fr) !important; 
     gap: 15px !important;
 }
+
+.ai-view-btn {
+        margin-top: 25px; /* Mobile par thora zyada gap */
+        width: fit-content; /* Button ko poori screen par phailne se rokega */
+    }
 
 .design-card {
     height: 180px !important; /* Mobile par height balance karne ke liye */
@@ -1103,20 +1167,20 @@ html{
             </div>
             <div class="graphics-grid card-grid">
                 <div class="design-card">
-                    <img src="card2.jpg" alt="Visiting Card 1">
-                    <div class="design-overlay"><span>Client Business Card </span></div>
+                    <img src="card2.jpg" alt="Client Business Card">
+                    <div class="design-overlay"><span>Client Business Card</span></div>
                 </div>
                 <div class="design-card">
-                    <img src="card1.PNG" alt="Visiting Card 2">
+                    <img src="card1.PNG" alt="Sample Business Card">
                     <div class="design-overlay"><span>Sample Business Card</span></div>
                 </div>
                 <div class="design-card">
-                    <img src="bussiness.png" alt="Visiting Card 3">
+                    <img src="bussiness.png" alt="Sample Business Card">
                     <div class="design-overlay"><span>Sample Business Card</span></div>
                 </div>
                 <div class="design-card">
-                    <img src="company card.png" alt="Visiting Card 4">
-                    <div class="design-overlay"><span>Sample Business Card </span></div>
+                    <img src="company card.png" alt="Sample Business Card">
+                    <div class="design-overlay"><span>Sample Business Card</span></div>
                 </div>
             </div>
         </div>
@@ -1129,38 +1193,56 @@ html{
                 </div>
             </div>
             <div class="graphics-grid logo-grid">
-                <div class="design-card"><img src="logo1.JPG" alt="Logo 1"><div class="design-overlay"><span>Scent & Elegance </span></div></div>
-                <div class="design-card"><img src="logo2.PNG" alt="Logo 2"><div class="design-overlay"><span>Auto Mechanics Fix </span></div></div>
-                <div class="design-card"><img src="logo3.jpg" alt="Logo 3"><div class="design-overlay"><span>Tech Connect Hub</span></div></div>
-                <div class="design-card"><img src="logo4.PNG" alt="Logo 4"><div class="design-overlay"><span>Sole Step Footwear </span></div></div>
+                <div class="design-card"><img src="logo1.JPG" alt="Scent & Elegance"><div class="design-overlay"><span>Scent & Elegance</span></div></div>
+                <div class="design-card"><img src="logo2.PNG" alt="Auto Mechanics Fix"><div class="design-overlay"><span>Auto Mechanics Fix</span></div></div>
+                <div class="design-card"><img src="logo3.jpg" alt="Tech Connect Hub"><div class="design-overlay"><span>Tech Connect Hub</span></div></div>
+                <div class="design-card"><img src="logo4.PNG" alt="Sole Step Footwear"><div class="design-overlay"><span>Sole Step Footwear</span></div></div>
             </div>
         </div>
 
         <div class="graphics-block">
             <div class="block-header">
                 <div class="block-info">
-                    <h3>Motion Graphics</h3>
+                    <h3>GIF Animation </h3>
                     <p>Dynamic AI animations and video effects for digital platforms.</p>
                 </div>
             </div>
             <div class="video-block-container">
-                <div class="video-wrapper">
-                    <video autoplay loop muted playsinline>
-                        <source src="gif.mov" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <div class="video-content">
-                    <h4>Animated Identity</h4>
-                    <p>This motion piece demonstrates fluid transitions and AI-integrated visual styles.
-                         It's designed to capture attention in social media feeds and digital signage.</p>
-                    <span class="tech-tag">After Effects</span> <span class="tech-tag">AI Tools</span>
-                </div>
-            </div>
+    <div class="video-wrapper">
+        <video autoplay loop muted playsinline>
+            <source src="gif.mov"> 
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="video-content">
+        <h4>The Hungry Cat - A Motion Story</h4>
+        <p>
+            This creative 2D animation narrates the journey of a hungry cat. 
+            The story follows a determined feline as it climbs the door to call its owner, 
+            enters the house, and creates a chaotic scene by knocking things over, 
+            finally succeeding in earning its favorite meal.
+        </p>
+        
+        <div class="tech-tags-container">
+            <span class="tech-tag">Adobe Illustrator</span> 
+            <span class="tech-tag">Adobe Photoshop</span>
         </div>
 
+        <div class="source-file-link">
+            <a href="final_gif.ai" target="_blank" class="ai-view-btn">
+                <i class="fas fa-file-download"></i> View AI Source File
+            </a>
+        </div>
+    </div>
+</div>
+        </div>
     </div>
 </section>
+
+<div id="imageModal" class="image-modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="fullImage">
+</div>
 
 <section id="contact" class="contact">
     <div class="container">
@@ -1264,8 +1346,9 @@ html{
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 
-    <script>
-        /* --- A. PARTICLES CONFIGURATION --- */
+<script>
+    /* --- A. PARTICLES CONFIGURATION --- */
+    if(typeof particlesJS !== 'undefined') {
         particlesJS('particles-js', {
             "particles": {
                 "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
@@ -1283,14 +1366,61 @@ html{
             },
             "retina_detect": true
         });
+    }
 
-        /* --- B. 3D TILT CONFIGURATION --- */
+    /* --- B. 3D TILT CONFIGURATION --- */
+    if(typeof VanillaTilt !== 'undefined') {
         VanillaTilt.init(document.querySelectorAll(".project-card"), {
-            max: 10,  // Max tilt rotation (degrees)
-            speed: 400, // Speed of the enter/exit transition
-            glare: true,  // Enable glare effect
-            "max-glare": 0.2, // Max glare opacity
+            max: 10,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2,
         });
-    </script>
+    }
+
+    /* --- C. IMAGE LIGHTBOX (MODAL) FIX --- */
+    document.addEventListener('DOMContentLoaded', () => {
+    // 1. Elements ko select karein
+    const modal = document.getElementById("imageModal");
+    const fullImg = document.getElementById("fullImage");
+    const closeBtn = document.querySelector(".close-modal");
+
+    // Check karein ke elements exist karte hain ya nahi (for safety)
+    if (!modal || !fullImg) return;
+
+    // 2. Click Event: Poore Card par click handle karein
+    // Kyunki overlay image ke upar hota hai, isliye image par direct click nahi hota
+    const cards = document.querySelectorAll('.design-card');
+
+    cards.forEach(card => {
+        card.addEventListener('click', function() {
+            // Card ke andar jo image hai uska src uthayein
+            const clickedImg = this.querySelector('img');
+            if (clickedImg) {
+                modal.style.display = "flex";
+                fullImg.src = clickedImg.src;
+                // Scroll lock karein taake background move na ho
+                document.body.style.overflow = 'hidden'; 
+            }
+        });
+    });
+
+    // 3. Close Functionality
+    if (closeBtn) {
+        closeBtn.onclick = () => {
+            modal.style.display = "none";
+            document.body.style.overflow = 'auto'; // Scroll wapas on karein
+        };
+    }
+
+    // 4. Background click par band karna
+    modal.onclick = (e) => {
+        if (e.target === modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = 'auto';
+        }
+    };
+});
+</script>
 </body>
 </html>
